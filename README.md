@@ -30,3 +30,8 @@ My setup to run ZNC on *openSUSE Leap 15.0* hosted on *Hetzner*
    ```
    bash init.sh
    ```
+
+### TODOs
+
+- Domain
+- Let's Encrypt certificate for the ZNC webadmin
