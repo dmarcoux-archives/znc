@@ -53,7 +53,7 @@ sudo usermod -aG docker "$USER"
 sudo systemctl enable --now docker
 
 # Generate the basic ZNC configuration (it will be configured later through the UI)
-docker run --volume znc-data:/znc-data znc:"$ZNC_VERSION" --makeconf
+docker run --interactive --tty --rm --volume znc-data:/znc-data znc:"$ZNC_VERSION" --makeconf
 
 ##### Setup Firewall #####
 
@@ -63,4 +63,4 @@ sudo systemctl restart firewalld
 
 ##### Run ZNC #####
 
-docker run --detach --publish "$PORT:$PORT" --volume znc-data:/znc-data znc:"$ZNC_VERSION"
+docker run --detach --rm --publish "$PORT:$PORT" --volume znc-data:/znc-data znc:"$ZNC_VERSION"
