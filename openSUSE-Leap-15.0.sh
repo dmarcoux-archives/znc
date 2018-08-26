@@ -9,10 +9,8 @@ set -eux
 #### Parameters ####
 
 USER="$(whoami)"
+PORT=6697
 ZNC_VERSION=1.7.1
-
-echo 'Port to use for ZNC?'
-read -r PORT
 
 ##### Updates & Packages #####
 
