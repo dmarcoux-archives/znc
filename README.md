@@ -33,5 +33,6 @@ My setup to run ZNC on *openSUSE Leap 15.0* hosted on *Hetzner*
 
 ### TODOs
 
+- [Terraform](https://www.terraform.io/docs/providers/hcloud/index.html)
 - Domain
 - Let's Encrypt certificate for the ZNC webadmin
