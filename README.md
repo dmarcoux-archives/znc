@@ -2,6 +2,12 @@
 
 My setup to run ZNC on *openSUSE Leap 15.1* hosted on *Hetzner*
 
+### Upgrade OS
+
+Check the last part of the [initialization script](openSUSE-Leap-15.1.sh).
+It contains instructions about backing up and restoring the ZNC configuration
+from the Docker volume.
+
 ### Setup
 
 *openSUSE Leap 15.1* is supported, but not as part of one of the official images. To install

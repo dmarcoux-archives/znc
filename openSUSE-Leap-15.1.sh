@@ -50,15 +50,47 @@ sudo usermod -aG docker "$USER"
 # Enable and start the Docker service
 sudo systemctl enable --now docker
 
-# Generate the basic ZNC configuration (it will be configured later through the UI)
-docker run --interactive --tty --rm --volume znc-data:/znc-data znc:"$ZNC_VERSION" --makeconf
-
 ##### Setup Firewall #####
 
 sudo firewall-cmd --permanent --add-port "$PORT"/tcp
 
 sudo systemctl restart firewalld
 
+##### Configure ZNC #####
+
+## Without an existing configuration
+
+# Generate the basic ZNC configuration (it will be configured later through the UI)
+# docker run --interactive --tty --rm --volume znc-data:/znc-data znc:"$ZNC_VERSION" --makeconf
+
+## With an existing configuration on another host (or before reinstalling OS)
+
+### Before reinstalling OS
+# Backup existing configuration
+# docker run --rm --volumes-from CONTAINER_NAME -v $(PWD):/znc-data busybox tar cvf /znc-data-backup.tar /DESTINATION/ON/HOST
+
+# Copy archive from local to remote
+# scp -r user@your.server.example.com:/path/to/foo /home/user/znc-data-backup.tar
+
+### After reinstalling OS
+# Copy archive from remote to local
+# scp /home/user/znc-data-backup.tar user@your.server.example.com:/path/to/foo/
+
+# Extract archive
+# tar xvf /home/user/znc-data-backup.tar
+
+# Create temporary container and volume
+# docker container create --name CONTAINER_NAME -v VOLUME_NAME:/znc-data busybox
+
+# Copy directory to volume
+# docker cp /home/user/znc-data CONTAINER_NAME:/
+
+# Remove temporary container
+# docker container rm CONTAINER_NAME
+
+# Remove unneeded busybox image
+# docker image rm busybox
+
 ##### Run ZNC #####
 
-docker run --detach --rm --publish "$PORT:$PORT" --volume znc-data:/znc-data znc:"$ZNC_VERSION"
+# docker run --detach --rm --publish "$PORT:$PORT" --volume znc-data:/znc-data znc:"$ZNC_VERSION"
