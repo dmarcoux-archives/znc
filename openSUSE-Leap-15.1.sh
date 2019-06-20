@@ -1,5 +1,5 @@
 #!/bin/bash
-# Initialization script for openSUSE Leap 15.0 image on Hetzner
+# Initialization script for openSUSE Leap 15.1 image on Hetzner
 
 # -e: Exit on commands not found
 # -u: Exit on unset variables
@@ -10,7 +10,7 @@ set -eux
 
 USER="$(whoami)"
 PORT=6697
-ZNC_VERSION=1.7.1
+ZNC_VERSION=1.7.3
 
 ##### Updates & Packages #####
 

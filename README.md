@@ -1,18 +1,18 @@
 # <a href="https://github.com/dmarcoux/znc">dmarcoux/znc</a>
 
-My setup to run ZNC on *openSUSE Leap 15.0* hosted on *Hetzner*
+My setup to run ZNC on *openSUSE Leap 15.1* hosted on *Hetzner*
 
 ### Setup
 
-*openSUSE* is supported, but not as part of one of the official images. To install
-*openSUSE* on a *Hetzner* server,
+*openSUSE Leap 15.1* is supported, but not as part of one of the official images. To install
+*openSUSE Leap 15.1* on a *Hetzner* server,
 
 1. Deploy a *Hetzner* server with any of the official images using the web
    interface
 2. Go under the `ISO Images` on the server's page
-3. Mount the `openSUSE Leap 15.0` ISO image
+3. Mount the `openSUSE Leap 15.1` ISO image
 4. Reboot the server
-5. Install `openSUSE Leap 15.0`
+5. Install `openSUSE Leap 15.1`
 6. Unmount the ISO image
 7. Copy SSH public key to the server
    ```
@@ -22,11 +22,11 @@ My setup to run ZNC on *openSUSE Leap 15.0* hosted on *Hetzner*
    ```
    ssh user@server_ip
    ```
-8. Download the [initialization script](openSUSE-Leap-15.0.sh) to the server
+8. Download the [initialization script](openSUSE-Leap-15.1.sh) to the server
    ```
-   curl https://raw.githubusercontent.com/dmarcoux/znc/master/openSUSE-Leap-15.0.sh --output init.sh
+   curl https://raw.githubusercontent.com/dmarcoux/znc/master/openSUSE-Leap-15.1.sh --output init.sh
    ```
-9. Run the [initialization script](openSUSE-Leap-15.0.sh)
+9. Run the [initialization script](openSUSE-Leap-15.1.sh)
    ```
    bash init.sh
    ```
